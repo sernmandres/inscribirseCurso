@@ -1,0 +1,56 @@
+/****************************************/
+/********* DOCUMENTACION ****************/
+
+/*******************************/
+/************* General ********/
+* Es necesario estar en la carpeta del ejercicio (root) para que los comandos funcionen correctamente
+* Es necesario tener instalado el paquete {yargs} en el sistema, sino está en el sistema el comando para 
+instalarlo es = npm i yargs
+*Es necesario mandar los 3 parametros (--cursoid, --nombre, --cedula), de lo contrario generar error ya que 
+son requeridos para la solicitud.
+
+/******************************/
+/********** Comandos **********/
+ 
+1. Enlistar todos los cursos disponibles. 
+Cada dos segundos se mostrará un curso.
+
+Comando : node main
+Respuesta: Objetos 
+{
+    id:,
+    nombre,
+    duración,
+    costo
+}
+
+----------------------------------------
+
+2. Inscribirse a uno de los cursos.
+
+Comando: node main inscribir --cursoid={id del curso} --nombre={nombre de la persona} --cedula={cedula de la persona}
+        ejemplo: node main inscribir --cursoid=nodejs --nombre=Andrés --cedula=10019857845
+
+Respuesta: Se realizó correctamente la preinscripción al curso de: { cursoid }
+
+* Cada registro se guarda en la carpeta Inscripciones. Están separados los registros dependiendo del curso.
+Solo se puede registrar una sola vez a cada uno de los cursos. Si se intenta registrar el programa dará una respuesta.
+Respuesta: Ya estás registrado al curso de: {cursoid}
+
+----------------------------------------
+
+3. Buscar curso que no está disponibles.
+Si al momento de insertar el id del curso este no está en la lista de cursos disponible, generara una respuesta y enlistara
+todos los cursos que están disponibles.
+
+Comando: node main inscribir --cursoid={id del curso (no existe en el sistema)} --nombre={nombre de la persona} --cedula={cedula de la persona}
+        ejemplo: node main inscribir --cursoid=baile --nombre=Carolina --cedula=10119857785
+Respuesta: 
+1. El curso: { cursoid } No está en los cursos que se ofrecen en estos momentos.
+2. Objetos 
+{
+    id:,
+    nombre,
+    duración,
+    costo
+}
